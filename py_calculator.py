@@ -9,7 +9,6 @@ def calculator(num1, num2, operation):
         return num1*num2
 
     elif operation == "/":
-        print(operation)
         return num1/num2
 
     else:

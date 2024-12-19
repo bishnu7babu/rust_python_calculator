@@ -1,7 +1,7 @@
 use pyo3::prelude::*;
 use pyo3::types::PyModule;
 use std::ffi::CString;
-use std::io;
+use std::io::{self, Write};
 
 fn main() {
 
@@ -9,17 +9,20 @@ fn main() {
 
     println!("Welcome to rust and Python Calculator!");
     println!("------------------------------------------------");
-    println!("Enter Your Number");
+    print!("Enter Your Number:: ");
+    io::stdout().flush().unwrap();
     let mut num_buf = String::new();
     io::stdin().read_line(&mut num_buf).expect("Failed to read the line");
     let num_buf: i32 = num_buf.trim().parse().unwrap();
 
-    println!("Enter Your Operation('+','-','*','/') ::");
+    print!("Enter Your Operation('+','-','*','/') :: ");
+    io::stdout().flush().unwrap();
     let mut operation = String::new();
     io::stdin().read_line(&mut operation).expect("Failed to read the line");
     let operation = operation.trim();
 
-    println!("Enter Your Number");
+    print!("Enter Your Number:: ");
+    io::stdout().flush().unwrap();
     let mut num_buf2 = String::new();
     io::stdin().read_line(&mut num_buf2).expect("Failed to read the line");
     let num_buf2: i32 = num_buf2.trim().parse().unwrap();
